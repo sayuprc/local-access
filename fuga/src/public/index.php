@@ -1,0 +1,1 @@
+<h1 style="font-size: 80px; color: blue;">Fuga Application</h1>
