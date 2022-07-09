@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  php:
+    build: ./infra/php
+    container_name: hoge
+    environment:
+      VIRTUAL_HOST: "hoge.localhost"
+      HTTPS_METHOD: noredirect
+    volumes:
+      - ./src:/var/www/html
+      - ./infra/apache/000-default.conf:/etc/apache2/sites-available/000-default.conf
+    networks:
+      - proxy-network
+
+networks:
+  proxy-network:
+    external: true
+    name: proxy-network
